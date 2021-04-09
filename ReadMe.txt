@@ -1,6 +1,6 @@
 1.	install docker (https://hub.docker.com/editions/community/docker-ce-desktop-windows/)
 2.	register on DockerHub (https://hub.docker.com/)
-3.	run installed docker and sign in with docker hub account
+3.	run installed docker and sign in with docker hub account (Docker ID is just a nickname)
 4.	create some dir and copy all data from this git repo
 5.	open console (cmd)
 	i)	go to created dir
@@ -9,7 +9,7 @@
 		(press enter)
 6.	to run airflow set up:
 
-docker-compose -f docker-compose-with-celery-executor.yml up --build -d
+docker-compose -f docker-compose-with-celery-executor.yml up -d
 (press enter)
 
 wait while in console (all steps are important)
