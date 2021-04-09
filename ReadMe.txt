@@ -9,7 +9,7 @@
 		(press enter)
 6.	to run airflow set up:
 
-docker-compose -f docker-compose-with-celery-executor.yml up -d
+docker-compose -f docker-compose-with-celery-executor.yml up --build -d
 (press enter)
 
 wait while in console (all steps are important)
