@@ -40,7 +40,7 @@ services:
   webserver:
     env_file:
       - .env
-    image: apache/airflow:1.10.15-python3.8-build
+    image: apache/airflow:1.10.15-python3.8
     ports:
       - 8080:8080
     volumes:
@@ -65,7 +65,7 @@ services:
     networks:
       - airflow
   flower:
-    image: apache/airflow:1.10.15-python3.8-build
+    image: apache/airflow:1.10.15-python3.8
     env_file:
       - .env
     ports:
@@ -83,7 +83,7 @@ services:
     networks:
       - airflow
   scheduler:
-    image: apache/airflow:1.10.15-python3.8-build
+    image: apache/airflow:1.10.15-python3.8
     env_file:
       - .env
     volumes:
@@ -100,7 +100,7 @@ services:
     networks:
       - airflow
   worker:
-    image: apache/airflow:1.10.15-python3.8-build
+    image: apache/airflow:1.10.15-python3.8
     env_file:
       - .env
     volumes:
@@ -120,7 +120,7 @@ services:
     networks:
       - airflow
   initdb:
-    image: apache/airflow:1.10.15-python3.8-build
+    image: apache/airflow:1.10.15-python3.8
     env_file:
       - .env
     volumes:
