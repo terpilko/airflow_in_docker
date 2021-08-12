@@ -44,9 +44,9 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./dags:/root/airflow/dags
-      - ./logs:/root/airflow/logs
-      - ./files:/root/airflow/files
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./files:/opt/airflow/files
       - /var/run/docker.sock:/var/run/docker.sock
     deploy:
       restart_policy:
@@ -58,7 +58,7 @@ services:
       - redis
     command: airflow webserver
     healthcheck:
-      test: ["CMD-SHELL", "[ -f /root/airflow/airflow-webserver.pid ]"]
+      test: ["CMD-SHELL", "[ -f /opt/airflow/airflow-webserver.pid ]"]
       interval: 30s
       timeout: 30s
       retries: 3
@@ -78,7 +78,7 @@ services:
         delay: 8s
         max_attempts: 3
     volumes:
-      - ./logs:/root/airflow/logs
+      - ./logs:/opt/airflow/logs
     command: airflow flower
     networks:
       - airflow
@@ -87,9 +87,9 @@ services:
     env_file:
       - .env
     volumes:
-      - ./dags:/root/airflow/dags
-      - ./logs:/root/airflow/logs
-      - ./files:/root/airflow/files
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./files:/opt/airflow/files
       - /var/run/docker.sock:/var/run/docker.sock
     command: airflow scheduler
     deploy:
@@ -104,9 +104,9 @@ services:
     env_file:
       - .env
     volumes:
-      - ./dags:/root/airflow/dags
-      - ./logs:/root/airflow/logs
-      - ./files:/root/airflow/files
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./files:/opt/airflow/files
       - /var/run/docker.sock:/var/run/docker.sock
     command: airflow worker
     depends_on:
@@ -124,9 +124,9 @@ services:
     env_file:
       - .env
     volumes:
-      - ./dags:/root/airflow/dags
-      - ./logs:/root/airflow/logs
-      - ./files:/root/airflow/files
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./files:/opt/airflow/files
       - /var/run/docker.sock:/var/run/docker.sock
     entrypoint: /bin/bash
     deploy:
